@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- ================================================================ -->
+  <!--     general information                                          -->
+  <!-- ================================================================ -->
+  <groupId>com.slgerkamp.billy.bass</groupId>
+  <artifactId>getting-started-with-billy-bass</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>getting-started-with-billy-bass</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <!-- ================================================================ -->
+  <!--     dependency                                                   -->
+  <!-- ================================================================ -->
+
+  <dependencies>
+	<!-- https://mvnrepository.com/artifact/com.pi4j/pi4j-core -->
+	<dependency>
+	    <groupId>com.pi4j</groupId>
+	    <artifactId>pi4j-core</artifactId>
+	    <version>1.0</version>
+	</dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+         <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+         </descriptorRefs>
+         <archive>
+          <manifest>
+           <mainClass>com.slgerkamp.billy.bass.App</mainClass>
+           <packageName>com.slgerkamp.billy.bass</packageName>
+           <addClasspath>true</addClasspath>
+         </manifest>
+	    </archive>
+	  </configuration>
+	  <executions>
+	    <execution>
+	      <id>make-jar</id>
+	      <phase>package</phase>
+	      <goals>
+	        <goal>single</goal>
+	      </goals>
+        </execution>
+      </executions>
+    </plugin>
+    </plugins>
+  </build>
+</project>

@@ -3,7 +3,7 @@ package com.slgerkamp.billy.bass;
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.RaspiPin;
-import com.slgerkamp.billy.bass.controller.LEDController;
+import com.slgerkamp.billy.bass.controller.MotorController;
 
 /**
  * Hello world!
@@ -17,8 +17,8 @@ public class App {
         
         // creating the pin with parameter PinState.HIGH
         // will instantly power up the pin
-        new LEDController().getLEDController(gpio, RaspiPin.GPIO_01);
-        
+        new MotorController().getController(gpio, RaspiPin.GPIO_26);
+
         // release the GPIO controller resources
         gpio.shutdown();
     }

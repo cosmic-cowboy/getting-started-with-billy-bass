@@ -5,9 +5,9 @@ import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
 
-public class LEDController {
+public class LEDController implements Controller {
 	
-	public void getLEDController(final GpioController gpio, final Pin inputPin) throws InterruptedException {
+	public void getController(GpioController gpio, Pin inputPin) throws InterruptedException {
 		final GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(inputPin, "PinLED", PinState.HIGH);
         System.out.println("light is: ON");
         
@@ -23,5 +23,4 @@ public class LEDController {
         System.out.println("light is: ON for 1 second");
         pin.pulse(1000, true);
 	}
-
 }

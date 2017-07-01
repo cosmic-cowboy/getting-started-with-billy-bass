@@ -15,8 +15,6 @@ public class MotorController implements Controller {
 
 		Gpio.wiringPiSetup();
 		SoftPwm.softPwmCreate(inputPin.getAddress(), 0, 100);
-		setSpeed(inputPin, 25);
-		setSpeed(inputPin, 50);
 		setSpeed(inputPin, 100);
 		setSpeed(inputPin, 0);
 	}

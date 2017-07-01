@@ -11,8 +11,13 @@ import com.slgerkamp.billy.bass.controller.MotorController;
  */
 public class App {
     public static void main(String[] args) throws InterruptedException {
-    	
-        // get a handle to the GPIO controller
+    	for(int i = 0; i < 2; i++) {
+            createController();    		
+    	}
+    }
+
+	private static void createController() throws InterruptedException {
+		// get a handle to the GPIO controller
     	final GpioController gpio = GpioFactory.getInstance();
         
         // creating the pin with parameter PinState.HIGH
@@ -21,6 +26,6 @@ public class App {
 
         // release the GPIO controller resources
         gpio.shutdown();
-    }
+	}
 
 }

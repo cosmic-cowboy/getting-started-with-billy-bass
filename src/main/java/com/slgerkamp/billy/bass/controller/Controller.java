@@ -1,9 +1,12 @@
 package com.slgerkamp.billy.bass.controller;
 
-import com.pi4j.io.gpio.GpioController;
-import com.pi4j.io.gpio.Pin;
-
 public interface Controller {
+	
+	public void call(final int interval) throws InterruptedException;
 
-	public void getController(final GpioController gpio, final Pin inputPin) throws InterruptedException;
+	public void toggle() throws InterruptedException;
+
+	public void high() throws InterruptedException;
+	
+	public void low() throws InterruptedException;
 }

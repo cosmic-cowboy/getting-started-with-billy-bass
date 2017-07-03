@@ -5,9 +5,9 @@ import com.pi4j.io.gpio.Pin;
 import com.pi4j.wiringpi.Gpio;
 import com.pi4j.wiringpi.SoftPwm;
 
-public class MotorController implements Controller {
+public class MotorController {
 	
-	public void getController(GpioController gpio, Pin inputPin) throws InterruptedException {
+	public void getController(GpioController gpio, Pin inputPin, int interval, int times) throws InterruptedException {
 		
 		System.out.println("address : " + inputPin.getAddress());
 		System.out.println("name : " + inputPin.getName());

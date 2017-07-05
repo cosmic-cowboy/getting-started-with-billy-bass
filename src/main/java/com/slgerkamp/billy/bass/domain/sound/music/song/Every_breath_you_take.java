@@ -15,9 +15,15 @@ public class Every_breath_you_take implements Song {
 
 	public ArrayList<Voice> songForTail() {
 		ArrayList<Voice> list = new ArrayList<Voice>();
-		for(int i = 0; i < 7; i++ ) {
-			list.add(new Voice(i, 1.75, i, 2.75));
-		}
+//		for(int i = 0; i < 7; i++ ) {
+//			list.add(new Voice(i, 1.75, i, 2.75));
+//		}
+		return list;
+	}
+
+	public ArrayList<Voice> songForHead() {
+		ArrayList<Voice> list = new ArrayList<Voice>();
+//		list.add(new Voice(22, 0, 43, 0));
 		return list;
 	}
 
@@ -25,57 +31,57 @@ public class Every_breath_you_take implements Song {
 		ArrayList<Voice> voices = new ArrayList<Voice>();
 
 		// pattern 1
-		voices.add(new Voice(7, 0.75, 7, 1.00));
-    	voices.add(new Voice(7, 1.25, 7, 1.50));
-    	voices.add(new Voice(7, 1.75, 7, 2.50));
-    	voices.add(new Voice(7, 2.75, 7, 3.25));
+		voices.add(new Voice(7, 0.75, 7, 1.25));
+    	voices.add(new Voice(7, 1.25, 7, 1.75));
+    	voices.add(new Voice(7, 1.75, 7, 2.75));
+    	voices.add(new Voice(7, 2.75, 7, 3.75));
     	voices.add(new Voice(7, 3.75, 7, 6.00));
 
-		voices.add(new Voice(9, 0.75, 9, 1.00));
-    	voices.add(new Voice(9, 1.25, 9, 1.50));
-    	voices.add(new Voice(9, 1.75, 9, 2.50));
-    	voices.add(new Voice(9, 2.75, 9, 3.25));
-    	voices.add(new Voice(9, 3.75, 9, 4.00));
-    	voices.add(new Voice(9, 4.25, 9, 4.50));
+		voices.add(new Voice(9, 0.75, 9, 1.25));
+    	voices.add(new Voice(9, 1.25, 9, 1.75));
+    	voices.add(new Voice(9, 1.75, 9, 2.75));
+    	voices.add(new Voice(9, 2.75, 9, 3.75));
+    	voices.add(new Voice(9, 3.75, 9, 4.25));
+    	voices.add(new Voice(9, 4.25, 9, 4.75));
 
     	// pattern 2
-		voices.add(new Voice(11, 0.25, 11, 0.50));
-		voices.add(new Voice(11, 0.75, 11, 1.00));
-    	voices.add(new Voice(11, 1.25, 11, 2.00));
-    	voices.add(new Voice(11, 2.25, 11, 3.00));
-    	voices.add(new Voice(11, 3.25, 11, 3.50));
+		voices.add(new Voice(11, 0.25, 11, 0.75));
+		voices.add(new Voice(11, 0.75, 11, 1.25));
+    	voices.add(new Voice(11, 1.25, 11, 2.25));
+    	voices.add(new Voice(11, 2.25, 11, 3.25));
+    	voices.add(new Voice(11, 3.25, 11, 3.75));
 
-		voices.add(new Voice(12, 0.25, 12, 0.50));
-		voices.add(new Voice(12, 0.75, 12, 1.00));
-    	voices.add(new Voice(12, 1.25, 12, 2.00));
-    	voices.add(new Voice(12, 2.25, 12, 3.00));
-    	voices.add(new Voice(12, 3.25, 12, 3.50));
+		voices.add(new Voice(12, 0.25, 12, 0.75));
+		voices.add(new Voice(12, 0.75, 12, 1.25));
+    	voices.add(new Voice(12, 1.25, 12, 2.25));
+    	voices.add(new Voice(12, 2.25, 12, 3.25));
+    	voices.add(new Voice(12, 3.25, 12, 3.75));
 
-		voices.add(new Voice(13, 0.25, 13, 0.50));
-		voices.add(new Voice(13, 0.75, 13, 1.00));
-		voices.add(new Voice(13, 1.25, 13, 1.50));
-		voices.add(new Voice(13, 1.75, 13, 2.00));
-		voices.add(new Voice(13, 2.25, 13, 2.50));
+		voices.add(new Voice(13, 0.25, 13, 0.75));
+		voices.add(new Voice(13, 0.75, 13, 1.25));
+		voices.add(new Voice(13, 1.25, 13, 1.75));
+		voices.add(new Voice(13, 1.75, 13, 2.25));
+		voices.add(new Voice(13, 2.25, 13, 2.75));
 
 		// pattern 1
-		voices.add(new Voice(15, 0.75, 15, 1.00));
-    	voices.add(new Voice(15, 1.25, 15, 1.50));
-    	voices.add(new Voice(15, 1.75, 15, 2.50));
-    	voices.add(new Voice(15, 2.75, 15, 3.25));
+		voices.add(new Voice(15, 0.75, 15, 1.25));
+    	voices.add(new Voice(15, 1.25, 15, 1.75));
+    	voices.add(new Voice(15, 1.75, 15, 2.75));
+    	voices.add(new Voice(15, 2.75, 15, 3.75));
     	voices.add(new Voice(15, 3.75, 15, 6.00));
 
-		voices.add(new Voice(17, 0.75, 17, 1.00));
-    	voices.add(new Voice(17, 1.25, 17, 1.50));
-    	voices.add(new Voice(17, 1.75, 17, 2.50));
-    	voices.add(new Voice(17, 2.75, 17, 3.25));
+		voices.add(new Voice(17, 0.75, 17, 1.25));
+    	voices.add(new Voice(17, 1.25, 17, 1.75));
+    	voices.add(new Voice(17, 1.75, 17, 2.75));
+    	voices.add(new Voice(17, 2.75, 17, 3.75));
     	voices.add(new Voice(17, 3.75, 17, 4.50));
 
     	// pattern 2
-		voices.add(new Voice(19, 0.25, 19, 0.50));
-		voices.add(new Voice(19, 0.75, 19, 1.00));
-    	voices.add(new Voice(19, 1.25, 19, 2.00));
-    	voices.add(new Voice(19, 2.25, 19, 3.00));
-    	voices.add(new Voice(19, 3.25, 19, 3.50));
+		voices.add(new Voice(19, 0.25, 19, 0.75));
+		voices.add(new Voice(19, 0.75, 19, 1.25));
+    	voices.add(new Voice(19, 1.25, 19, 2.25));
+    	voices.add(new Voice(19, 2.25, 19, 3.25));
+    	voices.add(new Voice(19, 3.25, 19, 3.75));
 
     	// pattern 2
 		voices.add(new Voice(20, 0.25, 20, 0.50));
@@ -222,11 +228,6 @@ public class Every_breath_you_take implements Song {
 		return voices;
 	}
 
-	public ArrayList<Voice> songForHead() {
-		ArrayList<Voice> list = new ArrayList<Voice>();
-		list.add(new Voice(22, 0, 43, 0));
-		return list;
-	}
 
 
 

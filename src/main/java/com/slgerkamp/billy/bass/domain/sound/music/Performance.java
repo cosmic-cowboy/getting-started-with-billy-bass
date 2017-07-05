@@ -4,8 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 
 import com.slgerkamp.billy.bass.controller.DigitalOutputPinController;
-import com.slgerkamp.billy.bass.domain.sound.music.song.Every_breath_you_take;
 import com.slgerkamp.billy.bass.domain.sound.music.song.Song;
+import com.slgerkamp.billy.bass.domain.sound.music.song.You_re_beautiful;
 import com.slgerkamp.billy.bass.domain.sound.play.WavPlayer;
 
 public class Performance {
@@ -25,16 +25,19 @@ public class Performance {
 
 
 	public void play() throws InterruptedException {
-		WavPlayer player = new WavPlayer(new File("Every_Breath_You_Take.wav"));
-		new Thread(player).start();
+		// input audio file name
+		WavPlayer player = new WavPlayer(new File("you_re_beautiful.wav"));
+		// create audio file name instance
+		Song song = new You_re_beautiful();
 
-		Song song = new Every_breath_you_take();
+		new Thread(player).start();
+		
     	final Measures measures = song.measures();
     	ArrayList<Voice> mouths = song.songForMouth();
     	final Musician mouth_musician = new Musician(mouth, measures, mouths);
-    	ArrayList<Voice> tails = new ArrayList<Voice>();
+    	ArrayList<Voice> tails = song.songForTail();
     	final Musician tail_musician = new Musician(tail, measures, tails);
-    	ArrayList<Voice> heads = new ArrayList<Voice>();
+    	ArrayList<Voice> heads = song.songForHead();
     	final Musician head_musician = new Musician(head, measures, heads);
     	
     	Thread.sleep(1850);
@@ -44,6 +47,7 @@ public class Performance {
     	while(true) {
     		System.out.println(System.currentTimeMillis());
     		if (!mouth_musician.next(startTime) & !tail_musician.next(startTime) & !head_musician.next(startTime)) {
+    			System.out.println("billy end");
     			break;
     		}
             try {

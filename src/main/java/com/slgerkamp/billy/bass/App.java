@@ -52,7 +52,6 @@ public class App {
     	final DigitalOutputPinController tail = new DigitalOutputPinController(gpio, RaspiPin.GPIO_27);    	
     	final DigitalOutputPinController head = new DigitalOutputPinController(gpio, RaspiPin.GPIO_06);
 
-    	head.high();
     	Performance performance = new Performance(head, tail, mouth);
     	performance.play();
     	

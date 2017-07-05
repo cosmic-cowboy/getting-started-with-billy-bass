@@ -45,20 +45,35 @@ public class Record {
 			line = (TargetDataLine) AudioSystem.getLine(info);
 			line.open(format);
 			line.start();   // start capturing
+			for (int i = 0; i < 10000; i++) {
 
-			System.out.println("Start capturing...");
+			    
+				float x = line.getLevel();
+				    
+				System.out.println(x);
+				    
+				try { Thread.sleep(10); } catch 
+				(InterruptedException e) {}
 
-			AudioInputStream ais = new AudioInputStream(line);
+				}
+			line.stop();
 
-			System.out.println("Start recording...");
+			// ターゲットデータラインをクローズ
+			line.close();
+
+//			System.out.println("Start capturing...");
+//
+//			AudioInputStream ais = new AudioInputStream(line);
+//
+//			System.out.println("Start recording...");
 
 			// start recording
-			AudioSystem.write(ais, fileType, wavFile);
+//			AudioSystem.write(ais, fileType, wavFile);
 
 		} catch (LineUnavailableException ex) {
 			ex.printStackTrace();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
+//		} catch (IOException ioe) {
+//			ioe.printStackTrace();
 		}
 	}
 

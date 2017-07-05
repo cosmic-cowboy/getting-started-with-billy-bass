@@ -19,7 +19,7 @@ public class Musician {
 	
 
 	public boolean next(long startTime) throws InterruptedException {
-		if (voices.isEmpty()) {
+		if (voices == null || voices.isEmpty()) {
 			return false;
 		}
 		long current = System.currentTimeMillis(); 

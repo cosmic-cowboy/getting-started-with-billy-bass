@@ -6,4 +6,3 @@ if [ $# -ne 1 ]; then
 fi
 mvn clean compile package
 scp -v target/getting-started-with-billy-bass-0.0.1-SNAPSHOT-jar-with-dependencies.jar pi@$1:
-ssh pi@$1 sudo java -jar getting-started-with-billy-bass-0.0.1-SNAPSHOT-jar-with-dependencies.jar

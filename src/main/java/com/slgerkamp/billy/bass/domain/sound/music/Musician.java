@@ -1,4 +1,4 @@
-package com.slgerkamp.billy.bass.domain.sound.song;
+package com.slgerkamp.billy.bass.domain.sound.music;
 
 import java.util.ArrayList;
 

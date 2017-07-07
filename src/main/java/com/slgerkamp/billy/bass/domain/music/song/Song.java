@@ -1,9 +1,9 @@
-package com.slgerkamp.billy.bass.domain.sound.music.song;
+package com.slgerkamp.billy.bass.domain.music.song;
 
 import java.util.ArrayList;
 
-import com.slgerkamp.billy.bass.domain.sound.music.Measures;
-import com.slgerkamp.billy.bass.domain.sound.music.Voice;
+import com.slgerkamp.billy.bass.infra.sound.music.Measures;
+import com.slgerkamp.billy.bass.infra.sound.music.Voice;
 
 public interface Song {
 	public Measures measures();

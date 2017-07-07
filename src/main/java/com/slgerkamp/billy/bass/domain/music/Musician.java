@@ -1,8 +1,10 @@
-package com.slgerkamp.billy.bass.domain.sound.music;
+package com.slgerkamp.billy.bass.domain.music;
 
 import java.util.ArrayList;
 
-import com.slgerkamp.billy.bass.controller.DigitalOutputPinController;
+import com.slgerkamp.billy.bass.infra.gpio.DigitalOutputPinController;
+import com.slgerkamp.billy.bass.infra.sound.music.Measures;
+import com.slgerkamp.billy.bass.infra.sound.music.Voice;
 
 public class Musician {
 
@@ -54,20 +56,5 @@ public class Musician {
 		}
 		return false;
 	}
-
-//	private boolean isPlay(long startTime, long current, int measure, double beat) {
-//		double time = measures.getTime(measure, beat);
-//		long nextPlayTime = startTime + (long)(time*1000);
-//		
-//		System.out.println("current : " + current + ", nextPlayTime : " + nextPlayTime);
-//		System.out.println("time : " + time + ", measure : " + measure + ", beat : " + beat);
-//		System.out.println("current - 50 < nextPlayTime : " + (current - 50 < nextPlayTime));
-//		System.out.println("current + 50 > nextPlayTime : " + (current + 50 > nextPlayTime));
-//		
-//		if(current - 50 < nextPlayTime && current + 50 > nextPlayTime) {
-//			return true;
-//		}
-//		return false;
-//	}
 
 }

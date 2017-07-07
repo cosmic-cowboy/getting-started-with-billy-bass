@@ -1,11 +1,11 @@
-package com.slgerkamp.billy.bass.domain.sound.music.song;
+package com.slgerkamp.billy.bass.domain.music.song;
 
 import java.util.ArrayList;
 
-import com.slgerkamp.billy.bass.domain.sound.music.Measures;
-import com.slgerkamp.billy.bass.domain.sound.music.TempoMap;
-import com.slgerkamp.billy.bass.domain.sound.music.TimeSign;
-import com.slgerkamp.billy.bass.domain.sound.music.Voice;
+import com.slgerkamp.billy.bass.infra.sound.music.Measures;
+import com.slgerkamp.billy.bass.infra.sound.music.TempoMap;
+import com.slgerkamp.billy.bass.infra.sound.music.TimeSign;
+import com.slgerkamp.billy.bass.infra.sound.music.Voice;
 
 public class Every_breath_you_take implements Song {
 
@@ -15,15 +15,15 @@ public class Every_breath_you_take implements Song {
 
 	public ArrayList<Voice> songForTail() {
 		ArrayList<Voice> list = new ArrayList<Voice>();
-//		for(int i = 0; i < 7; i++ ) {
-//			list.add(new Voice(i, 1.75, i, 2.75));
-//		}
+		for(int i = 0; i < 7; i++ ) {
+			list.add(new Voice(i, 1.75, i, 2.75));
+		}
 		return list;
 	}
 
 	public ArrayList<Voice> songForHead() {
 		ArrayList<Voice> list = new ArrayList<Voice>();
-//		list.add(new Voice(22, 0, 43, 0));
+		list.add(new Voice(22, 0, 43, 0));
 		return list;
 	}
 

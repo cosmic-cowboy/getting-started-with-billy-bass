@@ -1,4 +1,4 @@
-package com.slgerkamp.billy.bass.controller;
+package com.slgerkamp.billy.bass.infra.gpio;
 
 public interface Controller {
 	

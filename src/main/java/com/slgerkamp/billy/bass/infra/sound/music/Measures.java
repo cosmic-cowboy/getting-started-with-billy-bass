@@ -1,4 +1,4 @@
-package com.slgerkamp.billy.bass.domain.sound.music;
+package com.slgerkamp.billy.bass.infra.sound.music;
 
 public class Measures {
   TimeSign timeSign;

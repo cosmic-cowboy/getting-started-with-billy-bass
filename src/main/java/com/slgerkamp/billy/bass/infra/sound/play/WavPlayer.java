@@ -1,4 +1,4 @@
-package com.slgerkamp.billy.bass.domain.sound.play;
+package com.slgerkamp.billy.bass.infra.sound.play;
 
 import java.io.File;
 
@@ -8,7 +8,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.SourceDataLine;
 
-public class WavPlayer implements Runnable {
+public class WavPlayer {
 
 	private final File file;
 
@@ -16,7 +16,7 @@ public class WavPlayer implements Runnable {
 		this.file = file;
 	}
 
-	public void run() {
+	synchronized public boolean play() {
 		try{
 			AudioInputStream audio_input_stream = AudioSystem.getAudioInputStream(file);
 			AudioFormat audio_format = audio_input_stream.getFormat();
@@ -34,10 +34,11 @@ public class WavPlayer implements Runnable {
 					line.write(ab_data, 0, bytes_read);
 				}
 			}
-			System.out.println("music drain : " + System.currentTimeMillis());
 			line.drain();
+			System.out.println("music drain : " + System.currentTimeMillis());
 			line.close();
-
+			System.out.println("music close : " + System.currentTimeMillis());
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
 			throw new RuntimeException(e);

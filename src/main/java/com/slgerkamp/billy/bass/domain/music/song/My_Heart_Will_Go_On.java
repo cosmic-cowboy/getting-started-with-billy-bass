@@ -1,11 +1,11 @@
-package com.slgerkamp.billy.bass.domain.sound.music.song;
+package com.slgerkamp.billy.bass.domain.music.song;
 
 import java.util.ArrayList;
 
-import com.slgerkamp.billy.bass.domain.sound.music.Measures;
-import com.slgerkamp.billy.bass.domain.sound.music.TempoMap;
-import com.slgerkamp.billy.bass.domain.sound.music.TimeSign;
-import com.slgerkamp.billy.bass.domain.sound.music.Voice;
+import com.slgerkamp.billy.bass.infra.sound.music.Measures;
+import com.slgerkamp.billy.bass.infra.sound.music.TempoMap;
+import com.slgerkamp.billy.bass.infra.sound.music.TimeSign;
+import com.slgerkamp.billy.bass.infra.sound.music.Voice;
 
 public class My_Heart_Will_Go_On implements Song {
 

@@ -1,47 +1,61 @@
 package com.slgerkamp.billy.bass;
 
+import java.io.IOException;
+
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
+import com.pi4j.io.gpio.GpioPinDigitalInput;
+import com.pi4j.io.gpio.PinPullResistance;
 import com.pi4j.io.gpio.RaspiPin;
-import com.slgerkamp.billy.bass.controller.DigitalOutputPinController;
-import com.slgerkamp.billy.bass.domain.sound.music.Performance;
-import com.slgerkamp.billy.bass.domain.sound.rec.Record;
+import com.slgerkamp.billy.bass.domain.communication.Sensor;
+import com.slgerkamp.billy.bass.domain.music.Performance;
+import com.slgerkamp.billy.bass.infra.gpio.DigitalOutputPinController;
 
 /**
  * Hello world!
  *
  */
 public class App {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
 
-//		record();
-    		
-    	callMusician();
-//		call();
-	}
+    	if (args.length > 0) {
+    		String s = args[0];
+    		switch (Integer.valueOf(s)) {
+			case 1:
+		    	listen();
+				break;
+			case 2:
+		    	callMusician();				
+				break;
+			case 3:
+				call();				
+				break;
 
-	private static void record() {
-		final Record recorder = new Record();
-
-		// creates a new thread that waits for a specified
-		// of time before stopping
-		Thread stopper = new Thread(new Runnable() {
-			public void run() {
-				try {
-					Thread.sleep(Record.RECORD_MILLISECOND);
-				} catch (InterruptedException ex) {
-					ex.printStackTrace();
-				}
-				recorder.finish();
+			default:
+				break;
 			}
-		});
-
-		stopper.start();
-
-		// start recording
-		recorder.start();
+    			
+    	}
 	}
 
+
+    public static void listen() throws InterruptedException, IOException {
+		// get a handle to the GPIO controller
+    	final GpioController gpio = GpioFactory.getInstance();
+    	final GpioPinDigitalInput mic = gpio.provisionDigitalInputPin(RaspiPin.GPIO_00, PinPullResistance.PULL_DOWN);
+    	final DigitalOutputPinController mouth = new DigitalOutputPinController(gpio, RaspiPin.GPIO_25);
+    	final DigitalOutputPinController tail = new DigitalOutputPinController(gpio, RaspiPin.GPIO_27);    	
+    	final DigitalOutputPinController head = new DigitalOutputPinController(gpio, RaspiPin.GPIO_06);
+    	mouth.low();
+    	tail.low();
+    	head.low();
+    	Sensor sensor = new Sensor(mic, mouth, tail, head);
+    	sensor.getInfo(200);
+    	Thread.sleep(10000);
+        // release the GPIO controller resources
+        gpio.shutdown();
+
+    }
     public static void callMusician() throws InterruptedException {
 		// get a handle to the GPIO controller
     	final GpioController gpio = GpioFactory.getInstance();
@@ -75,13 +89,12 @@ public class App {
         
         // creating the pin with parameter PinState.HIGH
         // will instantly power up the pin
-    	final DigitalOutputPinController head = new DigitalOutputPinController(gpio, RaspiPin.GPIO_27);
     	final DigitalOutputPinController mouth = new DigitalOutputPinController(gpio, RaspiPin.GPIO_25);
-    	for(int i = 0; i < 5; i++) {
-        	mouth.call(250);
-        	head.call(250);
-    	}
-
+    	final DigitalOutputPinController tail = new DigitalOutputPinController(gpio, RaspiPin.GPIO_27);    	
+    	final DigitalOutputPinController head = new DigitalOutputPinController(gpio, RaspiPin.GPIO_06);
+    	mouth.call(250);
+    	head.call(250);
+    	tail.call(250);
     	
         // release the GPIO controller resources
         gpio.shutdown();

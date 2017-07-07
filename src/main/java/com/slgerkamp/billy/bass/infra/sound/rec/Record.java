@@ -1,4 +1,4 @@
-package com.slgerkamp.billy.bass.domain.sound.rec;
+package com.slgerkamp.billy.bass.infra.sound.rec;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,16 +14,19 @@ import javax.sound.sampled.TargetDataLine;
 
 public class Record {
 
-	public static final long RECORD_MILLISECOND = 10000;
-
 	// audio file
-	private File wavFile = new File("Record.wav");
+	private final File wavFile;
 
 	// format of audio file
 	private AudioFileFormat.Type fileType = AudioFileFormat.Type.WAVE;
 
 	// the line from which audio data is captured
 	private TargetDataLine line;
+
+	public Record(File wavFile) {
+		this.wavFile = wavFile;
+	}
+
 
 	/**
 	  * Captures the sound and record into a WAV file
@@ -45,35 +48,22 @@ public class Record {
 			line = (TargetDataLine) AudioSystem.getLine(info);
 			line.open(format);
 			line.start();   // start capturing
-			for (int i = 0; i < 10000; i++) {
 
-			    
-				float x = line.getLevel();
-				    
-				System.out.println(x);
-				    
-				try { Thread.sleep(10); } catch 
-				(InterruptedException e) {}
+			System.out.println("Start capturing...");
 
-				}
-			line.stop();
+			AudioInputStream ais = new AudioInputStream(line);
 
-			// ターゲットデータラインをクローズ
-			line.close();
-
-//			System.out.println("Start capturing...");
-//
-//			AudioInputStream ais = new AudioInputStream(line);
-//
-//			System.out.println("Start recording...");
+			System.out.println("Start recording...");
 
 			// start recording
-//			AudioSystem.write(ais, fileType, wavFile);
+			AudioSystem.write(ais, fileType, wavFile);
+
+			System.out.println("Finish recording...");
 
 		} catch (LineUnavailableException ex) {
 			ex.printStackTrace();
-//		} catch (IOException ioe) {
-//			ioe.printStackTrace();
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
 		}
 	}
 

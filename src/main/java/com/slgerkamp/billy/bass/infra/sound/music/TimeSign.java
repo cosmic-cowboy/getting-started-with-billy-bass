@@ -1,4 +1,4 @@
-package com.slgerkamp.billy.bass.domain.sound.music;
+package com.slgerkamp.billy.bass.infra.sound.music;
 
 import java.util.NavigableMap;
 import java.util.TreeMap;

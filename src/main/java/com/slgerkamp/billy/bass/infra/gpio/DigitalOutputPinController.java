@@ -1,4 +1,4 @@
-package com.slgerkamp.billy.bass.controller;
+package com.slgerkamp.billy.bass.infra.gpio;
 
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
@@ -8,14 +8,27 @@ import com.pi4j.io.gpio.PinState;
 public class DigitalOutputPinController implements Controller {
 
 	private final GpioPinDigitalOutput pin;
-	private final Pin inputPin;
 	public DigitalOutputPinController(GpioController gpio, Pin inputPin) {
 		pin = gpio.provisionDigitalOutputPin(inputPin, "PinLED", PinState.LOW);
-		this.inputPin = inputPin;
-		
 	}
 
 	public void call(int interval) throws InterruptedException {
+		
+        pin.high();
+        System.out.println("status is: ON");
+
+        Thread.sleep(interval);
+        System.out.println("wait " + interval + " millseconds");
+
+        pin.low();
+        System.out.println("status is: OFF");
+
+        Thread.sleep(interval);
+        System.out.println("wait " + interval + " millseconds");
+	}
+
+	public void callAsync(int interval) throws InterruptedException {
+		
         pin.high();
         System.out.println("status is: ON");
 
